@@ -996,7 +996,7 @@
 
         try {
             const response = await fetch(
-                `http://52.66.249.207:3040api/jobs?page=${page}&limit=${jobsPerPage}&search=${encodeURIComponent(search)}`
+                `http://65.2.149.3:3050api/jobs?page=${page}&limit=${jobsPerPage}&search=${encodeURIComponent(search)}`
             );
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -1076,7 +1076,7 @@
     // Function to fetch and show job details
     async function showJobDetails(jobId) {
         try {
-            const response = await fetch(`http://52.66.249.207:3040/api/jobs/${jobId}`);
+            const response = await fetch(`http://65.2.149.3:3050/api/jobs/${jobId}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -1160,7 +1160,7 @@
             resume: 'Resume content or URL' // Replace with file upload or input
         };
         try {
-            const response = await fetch('http://52.66.249.207:3040/api/applications', {
+            const response = await fetch('http://65.2.149.3:3050/api/applications', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(applicationData)
@@ -1192,7 +1192,7 @@
             userId: 'user123' // Replace with actual user ID from authentication
         };
         try {
-            const response = await fetch('http://52.66.249.207:3040/api/favorites', {
+            const response = await fetch('http://65.2.149.3:3050/api/favorites', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(favoriteData)
