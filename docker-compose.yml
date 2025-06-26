@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres6
+    ports:
+      - "5018:5432"
+    environment:
+      POSTGRES_DB: jobflow_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin123
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build: ./Backend
+    container_name: backend5
+    ports:
+      - "3050:3050"
+    depends_on:
+      - postgres
+
+  job-apply:
+    build: ./job-apply
+    container_name: job-apply
+    ports:
+      - "8066:80"
+    depends_on:
+      - backend
+
+  job-post:
+    build: ./job-post
+    container_name: job-post
+    ports:
+      - "8067:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres-data:
+
