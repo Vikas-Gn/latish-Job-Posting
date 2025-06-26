@@ -996,7 +996,7 @@
 
         try {
             const response = await fetch(
-                `http://43.205.129.17:3050api/jobs?page=${page}&limit=${jobsPerPage}&search=${encodeURIComponent(search)}`
+                `http://43.205.129.17:3050/api/jobs?page=${page}&limit=${jobsPerPage}&search=${encodeURIComponent(search)}`
             );
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
