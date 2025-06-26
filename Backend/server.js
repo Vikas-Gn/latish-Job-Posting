@@ -158,5 +158,5 @@ app.post('/api/favorites', async (req, res) => {
 
 // Start server
 app.listen(port, () => {
-    console.log(`Server running at http://65.2.149.3:${port}`);
+    console.log(`Server running at http://43.205.129.17:${port}`);
 });
